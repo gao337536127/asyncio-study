@@ -9,6 +9,7 @@ async def show_time(name: str, n=30):
             f"async name: {name}, time = {time.time()}, loop = {id(asyncio.get_running_loop())}"
         )
         await asyncio.sleep(1)
+    return n
 
 
 if __name__ == "__main__":
@@ -17,9 +18,13 @@ if __name__ == "__main__":
     t1.start()
 
     time.sleep(5)
-    asyncio.run_coroutine_threadsafe(show_time("add1", n=20), loop=loop)
+    f1 = asyncio.run_coroutine_threadsafe(show_time("add1", n=20), loop=loop)
 
     time.sleep(5)
-    asyncio.run_coroutine_threadsafe(show_time("add2", n=10), loop=loop)
+    f2 = asyncio.run_coroutine_threadsafe(show_time("add2", n=10), loop=loop)
+
+    time.sleep(25)
+    print(f"f1 result: {f1.result()}")
+    print(f"f2 result: {f2.result()}")
 
     t1.join()
