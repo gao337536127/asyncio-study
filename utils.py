@@ -3,6 +3,9 @@ import time
 from typing import Any, Callable
 import functools
 
+# CNNIC公共DNS（SDNS）
+DOMESTIC_DNS_SERVERS = ["1.2.4.8", "210.2.4.8", "240c::6666", "240c::6644"]
+
 
 def async_timed():
     def wrapper(func: Callable) -> Callable:
