@@ -1,6 +1,6 @@
 import asyncio
 from asyncio.events import AbstractEventLoop
-from concurrent.futures import ProcessPoolExecutor, Executor
+from concurrent.futures import ProcessPoolExecutor
 from functools import partial
 from typing import List
 
